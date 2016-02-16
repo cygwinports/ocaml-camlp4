@@ -1,0 +1,28 @@
+inherit ocaml
+
+NAME="ocaml-camlp4"
+VERSION=4.02+6
+RELEASE=1
+CATEGORY="OCaml"
+SUMMARY="Preprocessor pretty printer for OCaml"
+DESCRIPTION="Camlp4 is a Pre-Processor-Pretty-Printer for OCaml, parsing a
+source file and printing some result on standard output."
+HOMEPAGE="https://github.com/ocaml/camlp4"
+SRC_URI="https://github.com/ocaml/camlp4/archive/${VERSION}/camlp4-${VERSION}.tar.gz"
+SRC_DIR="camlp4-${VERSION/+/-}"
+PATCH_URI="4.02-exeext.patch"
+
+REQUIRES="ocaml-base"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	./configure
+	cygmake -j1 all
+}
+
+src_install() {
+	cd ${B}
+	dodir /usr/bin ${OCAML_LIBDIR}/camlp4
+	cyginstall EXE=.exe
+}

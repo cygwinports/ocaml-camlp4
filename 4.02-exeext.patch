@@ -1,0 +1,20 @@
+--- origsrc/camlp4-4.02-6/configure	2015-06-17 06:37:36.000000000 -0500
++++ src/camlp4-4.02-6/configure	2016-02-16 00:49:24.373573400 -0600
+@@ -48,11 +48,14 @@ ocamlc -config | sed 's/^/let /;s/: / =
+ 
+ . ./config.sh
+ 
+-if [ "$os_type" = Win32 ]; then
++case "$os_type" in
++Win32|Cygwin)
+     ext_exe=".exe"
+-else
++;;
++*)
+     ext_exe=""
+-fi
++;;
++esac
+ 
+ OCAMLC="`which ocamlc`"
+ LIBDIR="${LIBDIR:-$standard_library}"

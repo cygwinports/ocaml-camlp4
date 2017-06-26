@@ -2,7 +2,7 @@ inherit ocaml
 
 NAME="ocaml-camlp4"
 VERSION=4.04+1
-RELEASE=1
+RELEASE=2
 CATEGORY="OCaml"
 SUMMARY="Preprocessor pretty printer for OCaml"
 DESCRIPTION="Camlp4 is a Pre-Processor-Pretty-Printer for OCaml, parsing a
